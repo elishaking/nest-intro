@@ -8,17 +8,20 @@ import {
   Param,
 } from '@nestjs/common';
 import { CreateTodoDto } from './dto/create-todo.dto';
+import { TodosService } from './todos.service';
 
 @Controller('todos')
 export class TodosController {
+  constructor(private readonly todosService: TodosService) {}
+
   @Get()
   getAll() {
-    return 'All Todos';
+    return this.todosService.getAll();
   }
 
   @Get(':id')
   getOne(@Param() param: { id: string }) {
-    return `Todo ${param.id}`;
+    return this.todosService.getOne(param.id);
   }
 
   @Post()

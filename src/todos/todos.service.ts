@@ -30,4 +30,8 @@ export class TodosService {
   getAll() {
     return this.todos;
   }
+
+  getOne(id: string) {
+    return this.todos.find(todo => todo.id === id);
+  }
 }
