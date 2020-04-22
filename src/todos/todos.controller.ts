@@ -1,7 +1,7 @@
 import { Controller, Get, Post, Put, Delete } from '@nestjs/common';
 
-@Controller('todo')
-export class TodoController {
+@Controller('todos')
+export class TodosController {
   @Get()
   getAll() {
     return 'All Todos';
