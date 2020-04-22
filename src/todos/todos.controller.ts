@@ -25,4 +25,9 @@ export class TodosController {
   createTodo(@Body() todoDto: CreateTodoDto) {
     return `Created Todo with title: ${todoDto.title}`;
   }
+
+  @Delete(':id')
+  delete(@Param() param: { id: string }) {
+    return `Deleted Todo ${param.id}`;
+  }
 }
