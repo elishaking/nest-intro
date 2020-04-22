@@ -9,18 +9,19 @@ import {
 } from '@nestjs/common';
 import { CreateTodoDto } from './dto/create-todo.dto';
 import { TodosService } from './todos.service';
+import { Todo } from './interfaces/todo.interface';
 
 @Controller('todos')
 export class TodosController {
   constructor(private readonly todosService: TodosService) {}
 
   @Get()
-  getAll() {
+  getAll(): Todo[] {
     return this.todosService.getAll();
   }
 
   @Get(':id')
-  getOne(@Param() param: { id: string }) {
+  getOne(@Param() param: { id: string }): Todo {
     return this.todosService.getOne(param.id);
   }
 

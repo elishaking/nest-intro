@@ -27,11 +27,11 @@ export class TodosService {
     },
   ];
 
-  getAll() {
+  getAll(): Todo[] {
     return this.todos;
   }
 
-  getOne(id: string) {
+  getOne(id: string): Todo {
     return this.todos.find(todo => todo.id === id);
   }
 }
