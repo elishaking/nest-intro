@@ -30,4 +30,9 @@ export class TodosController {
   delete(@Param() param: { id: string }) {
     return `Deleted Todo ${param.id}`;
   }
+
+  @Put(':id')
+  update(@Body() todoDto: CreateTodoDto, @Param() param: { id: string }) {
+    return `Updated Todo ${param.id} with title: ${todoDto.title}`;
+  }
 }
